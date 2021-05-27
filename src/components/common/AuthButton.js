@@ -10,7 +10,7 @@ const AuthBtnStyled = styled.button`
 `;
 
 const AuthButton = ({ title }) => {
-  return <AuthBtnStyled>{title}</AuthBtnStyled>;
+  return <button>{title}</button>;
 };
 
 export default AuthButton;
