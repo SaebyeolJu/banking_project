@@ -5,14 +5,12 @@ import ListComponent from "./components/ListComponent";
 import AuthResultPage from "./pages/AuthResultPage";
 import NewsPage from "./pages/NewsPage";
 import MainPage from "./pages/MainPage";
+import ListPage from "./pages/ListPage";
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/list" exact>
-          <ListComponent />
-        </Route>
         <Route path="/axios" exact>
           <AxiosComponent />
         </Route>
@@ -24,6 +22,9 @@ function App() {
         </Route>
         <Route path="/authResult" exact>
           <AuthResultPage />
+        </Route>
+        <Route path="/list" exact>
+          <ListPage />
         </Route>
       </Switch>
     </Router>
