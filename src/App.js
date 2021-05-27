@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AxiosComponent from "./components/AxiosComponent";
 import ListComponent from "./components/ListComponent";
+import AuthResultPage from "./pages/AuthResultPage";
 import NewsPage from "./pages/NewsPage";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
@@ -17,7 +19,12 @@ function App() {
         <Route path="/news" exact>
           <NewsPage />
         </Route>
-        <NewsPage />
+        <Route path="/main" exact>
+          <MainPage />
+        </Route>
+        <Route path="/authResult" exact>
+          <AuthResultPage />
+        </Route>
       </Switch>
     </Router>
   );
