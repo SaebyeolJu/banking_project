@@ -3,28 +3,30 @@ import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
 import AuthButton from "../components/common/AuthButton";
+import qs from "qs";
 
 const AuthResultPage = () => {
   const { search } = useLocation();
   const { code } = queryString.parse(search);
 
   // proxcy setting
-
   const getAccessToken = () => {
+    const sendData = qs.stringify({
+      code: code,
+      client_id: "10866f6e-c280-41e3-bcc0-c3df9cddbcca",
+      client_secret: "cd76aef5-bb1e-4cb5-8acb-412577f8c714",
+      redirect_uri: "http://localhost:3000/authResult",
+      grant_type: "authorization_code",
+    });
     const option = {
       method: "POST",
       url: "/oauth/2.0/token",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      data: {
-        code: code,
-        client_id: "10866f6e-c280-41e3-bcc0-c3df9cddbcca",
-        client_secret: "cd76aef5-bb1e-4cb5-8acb-412577f8c714",
-        redirect_uri: "http://localhost:3000/authResult",
-        grant_type: "authorization_code",
-      },
+      data: sendData,
     };
+    //#homework : 해당 코드가 동작하게 변경해주세요 ! hint : proxy, json serialization on axios
     axios(option).then(response => {
       console.log(response.data);
     });
